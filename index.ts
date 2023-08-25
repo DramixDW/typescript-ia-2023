@@ -145,6 +145,11 @@ function levelUp(player: Player) {
     player.level = player.level +1;
 }
 
+//Partial rend toutes les propriétés non-obligatoire
+function updatePremiumPlayer(newPlayer: Partial<PremiumPlayer>) {
+    newPlayer.level = newPlayer.level ?? 0 + 1
+}
+
 levelUp(player as unknown as Player);
 
 let fakeNumber: number = '42000' as unknown as number;
@@ -161,3 +166,14 @@ function save(mode: "edit" | "create" | "delete") {
 }
 
 save('delete');
+
+
+const myMovieList: {
+    [key: string]: string,
+} = {
+    'Matric': 'un film dur à regarder',
+}
+
+const myBookList: Record<string, number> = {
+    'Alice au pays des merveilles': 4,
+}
